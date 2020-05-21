@@ -1,0 +1,36 @@
+npm i sortablejs --save  
+import Sortable from 'sortablejs'
+<Col class="margin-top-10" ref="dragIn">
+                     <input v-model="haha1" class="haha1" type="text" />
+                     <input v-model="haha2" class="haha2" type="text" />
+                 </Col>
+   onstart(e){
+       
+    },
+    onend(e){
+        console.log(e.originalEvent.path[0].className)
+        if(e.originalEvent.path[0].className == 'haha1'){
+            this.haha1 = e.target.innerText
+        }
+        if(e.originalEvent.path[0].className == 'haha2'){
+            this.haha2 = e.target.innerText
+        }
+
+    }
+        
+  },
+  //¹´×Ó
+  mounted(){
+     let el = this.$refs.drag.$el
+     let el1 = this.$refs.dragIn.$el
+     let vm = this
+     Sortable.create(el,{
+         onStart:vm.onstart,
+         onEnd:vm.onend,
+     })
+     Sortable.create(el1,{
+         onStart:vm.onstart,
+         onEnd:vm.onend,
+     })
+
+
