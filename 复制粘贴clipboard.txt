@@ -1,0 +1,19 @@
+npm install clipboard --save
+
+<Button data-clipboard-action="copy" class="cobyOrderSn" :data-clipboard-text="haha" @click="copyLink">点我</Button>
+import Clipboard from 'clipboard'
+data(){
+        return{
+            haha:'哈哈'
+        }
+copyLink () {
+            this.haha = 'hehe'
+            let _this = this;
+            let clipboard = new Clipboard(".cobyOrderSn");
+            clipboard.on('success', function () {
+            _this.$Message.info("复制成功")
+            });
+            clipboard.on('error', function () {
+            _this.$Message.info("复制失败")
+            });
+        },
