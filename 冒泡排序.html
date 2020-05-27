@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //冒泡
+    //相邻两项每次比较将大数放在后面。
+    //最外层for循环控制比较次数.
+    let ary=[1,3,4,7,22,11,2,6,8]
+    function bubling(ary){
+        let temp;
+        for(let i=0;i<ary.length-1-1;i++){
+            for(let j=0;j<ary.length-1;j++){
+                if(ary[j]>ary[j+1]){  
+                    temp = ary[j]
+                    ary[j] = ary[j+1]
+                    ary[j+1] = temp
+                }
+            }
+        }
+        return ary
+        }
+    console.log(bubling(ary))
+</script>
+</body>
+</html>
